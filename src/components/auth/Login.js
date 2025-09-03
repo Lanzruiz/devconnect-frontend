@@ -13,7 +13,10 @@ const Login = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Success!");
+  };
 
   return (
     <Fragment>

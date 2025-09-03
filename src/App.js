@@ -7,17 +7,23 @@ import { Routes, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
+
 const App = () => {
   return (
-    <Fragment>
-      <Navbar />
+    <Provider store={store}>
+      <Fragment>
+        <Navbar />
 
-      <Routes>
-        <Route exact path="/" Component={Landing} />
-        <Route exact path="/register" Component={Register} />
-        <Route exact path="/login" Component={Login} />
-      </Routes>
-    </Fragment>
+        <Routes>
+          <Route exact path="/" Component={Landing} />
+          <Route exact path="/register" Component={Register} />
+          <Route exact path="/login" Component={Login} />
+        </Routes>
+      </Fragment>
+    </Provider>
   );
 };
 
