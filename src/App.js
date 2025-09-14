@@ -3,11 +3,12 @@ import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import Dashboard from "./components/layout/Dashboard";
+import Dashboard from "./components/layout/Dashboard/Dashboard";
 import Alert from "./components/layout/Alert";
 import { Routes, Route, Switch } from "react-router-dom";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "../src/utils/setAuthToken";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 import "./App.css";
 
@@ -28,7 +29,10 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route exact path="/" Component={Landing} />
-          <Route exact path="/dashboard" Component={Dashboard} />
+          <Route
+            path="dashboard"
+            element={<PrivateRoute component={Dashboard} />}
+          />
           <Route exact path="/register" Component={Register} />
           <Route exact path="/login" Component={Login} />
         </Routes>
